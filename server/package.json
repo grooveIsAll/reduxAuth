@@ -1,0 +1,22 @@
+{
+  "name": "redux-auth",
+  "version": "1.0.0",
+  "description": "react/redux, authorization using tokens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:grooveIsAll/reduxAuth.git",
+  "author": "grooveIsAll",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grooveIsAll/reduxAuth/issues"
+  },
+  "homepage": "https://github.com/grooveIsAll/reduxAuth#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.19",
+    "morgan": "^1.7.0"
+  }
+}
