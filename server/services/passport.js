@@ -14,9 +14,24 @@ const localOptions = { usernameField: 'email' };
 const localLogin = new LocalStrategy(localOptions, function(email, password, done) {
   // Verify username and password, if correct call done with the user
   // Otherwise call done with false
+  User.findOne({ email: email }, function(err, user) {
+    if(err) return done(err);
+    // case where user does not exist or is not found
+    if(!user) return done(null, false);
+
+    // Compare passwords: is the `password` from the request === to user.password?
+    user.comparePassword(password, function(err, isMatch) {
+      // there was an error
+      if(err) return done(err);
+      // no match no error
+      if(!isMatch) return done(null, false);
+      // no error user was matched
+      return done(null, user);
+    });
+
+  });
   
-  
-});
+}); 
 
 // Setup options for JWT Strategy
 const jwtOptions = {
@@ -46,3 +61,4 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
 
 // Tell Passport to use this strategy
 passport.use(jwtLogin);
+passport.use(localLogin);

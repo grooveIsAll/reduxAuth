@@ -10,6 +10,12 @@ function tokenForUser(user) {
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
+exports.signin = function(req, res, next) {
+  // User has been authorized, we need to give them a token
+  // req.user: is supplied from the 'done callback' in passport
+  res.send({ token: tokenForUser(req.user) });
+}
+
 exports.signup = function(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
@@ -40,6 +46,7 @@ exports.signup = function(req, res, next) {
     // Respond to the request indicating that the user was created
     res.json({ 
       token: tokenForUser(user) 
+
     });
   });
 }
