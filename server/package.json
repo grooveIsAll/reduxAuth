@@ -1,12 +1,12 @@
 {
-  "name": "redux-auth",
+  "name": "redux-auth-server",
   "version": "1.0.0",
   "description": "react/redux, authorization using tokens",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git@github.com:grooveIsAll/reduxAuth.git",
+  "repository": "git@github.com:grooveIsAll/reduxAuthServer.git",
   "author": "grooveIsAll",
   "license": "ISC",
   "bugs": {
