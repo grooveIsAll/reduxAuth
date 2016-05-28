@@ -5,6 +5,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const router = require('./router');
 
@@ -17,6 +18,8 @@ const app = express();
        // any incoming request will be passed into these two middleware
        // all possible by using app.use('which registers them as middleware')
 app.use(morgan('combined'));
+// allow cross origin resource sharing, 
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
 
